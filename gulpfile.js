@@ -100,7 +100,29 @@ var compileTypeScript = function(generateWithDTS) {
         ]);
     }
     return tsSource.js.pipe(gulp.dest(PATHS.dest));
-}
+};
+
+var modifyTypeScriptDef = function(filePath){
+    var lines = fs.readFileSync(filePath).toString('utf8').split("\n");
+    var newLines = [
+        'declare module "multivalidator-ts" {',
+        '    export = MultivalidatorTs;',
+        '}',
+        ''
+    ];
+    newLines.push('declare module MultivalidatorTs {');
+    for (var i=0;i < lines.length;i++) {
+        if (lines[i].trim().indexOf('///') === 0) {
+            continue;
+        }
+        lines[i] = lines[i].replace(/([\s]+)?export([\s]+)declare([\s]+)module([\s]+)/, function(result, res1, res2, res3, res4){
+            return ((typeof res1 === 'string') ? res1 : '') + 'export module ';
+        });
+        newLines.push('    ' + lines[i]);
+    }
+    newLines.push('}')
+    fs.writeFileSync(filePath, newLines.join("\n"));
+};
 
 gulp.task('typescript-js-prepare', function(){
     return compileTypeScript();
@@ -116,6 +138,7 @@ gulp.task('typescript-min', ['typescript-js-prepare'], function(){
 
 gulp.task('typescript-full', ['typescript-dts-prepare'], function(){
     fs.renameSync(PATHS.mainFileTs.replace(/\.ts$/, '.d.ts'), PATHS.typings);
+    modifyTypeScriptDef(PATHS.typings);
 });
 
 gulp.task('typedoc-release', ['typescript-full'], function() {
