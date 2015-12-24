@@ -1,4 +1,5 @@
 var fs = require('fs');
+var merge = require('merge2');
 var gulp = require('gulp');
 var ts = require('gulp-typescript');
 var typescript = require('typescript');
@@ -9,6 +10,7 @@ var PATHS = {
     mainFileTs: 'main.ts',
 	src: 'src',
 	dest: 'release',
+    typings: 'multivalidator-ts.d.ts',
 	tests: 'tests',
     docs: 'docs'
 };
@@ -82,16 +84,41 @@ var generateMainFileTypeScript = function() {
     fs.writeFileSync(PATHS.src + '/' + PATHS.mainFileTs, cleanContent);
 };
 
-gulp.task('typescript', function() {
+var compileTypeScript = function(generateWithDTS) {
     generateMainFileTypeScript();
-	return gulp.src(PATHS.src + '/' + PATHS.mainFileTs).pipe(ts({
+	var tsSource = gulp.src(PATHS.src + '/' + PATHS.mainFileTs).pipe(ts({
 		typescript: require('typescript'),
 		target: 'ES5',
-		module: 'commonjs'
-	})).js.pipe(gulp.dest(PATHS.dest));
+		module: 'commonjs',
+        declarationFiles: true
+	}));
+    
+    if (generateWithDTS) {
+        return merge([
+            tsSource.js.pipe(gulp.dest(PATHS.dest)),
+            tsSource.dts.pipe(gulp.dest(__dirname))
+        ]);
+    }
+    return tsSource.js.pipe(gulp.dest(PATHS.dest));
+}
+
+gulp.task('typescript-js-prepare', function(){
+    return compileTypeScript();
 });
 
-gulp.task('typedoc', ['typescript'], function() {
+gulp.task('typescript-dts-prepare', function(){
+    return compileTypeScript(true);
+});
+
+gulp.task('typescript-min', ['typescript-js-prepare'], function(){
+    
+});
+
+gulp.task('typescript-full', ['typescript-dts-prepare'], function(){
+    fs.renameSync(PATHS.mainFileTs.replace(/\.ts$/, '.d.ts'), PATHS.typings);
+});
+
+gulp.task('typedoc-release', ['typescript-full'], function() {
     return gulp.src(PATHS.src + '/' + PATHS.mainFileTs).pipe(typedoc({
 		module: 'commonjs',
 		target: 'es5',
@@ -101,22 +128,22 @@ gulp.task('typedoc', ['typescript'], function() {
 	}));
 });
 
-gulp.task('test-validator', ['typescript'], function() {
+gulp.task('test-validator', ['typescript-min'], function() {
     runTests(PATHS.tests + '/01_validator.js');
 });
 
-gulp.task('test-property', ['typescript'], function() {
+gulp.task('test-property', ['typescript-min'], function() {
     runTests(PATHS.tests + '/02_property.js');
 });
 
-gulp.task('test-model', ['typescript'], function() {
+gulp.task('test-model', ['typescript-min'], function() {
     runTests(PATHS.tests + '/03_model.js');
 });
 
-gulp.task('test', ['typescript'], function() {
+gulp.task('test', ['typescript-min'], function() {
     runTests(PATHS.tests + '/*.js');
 });
 
-gulp.task('build', ['typescript'], function(){
+gulp.task('build', ['typedoc-release'], function(){
     
 });
