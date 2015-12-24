@@ -1,5 +1,6 @@
-var property = require('./../release/property');
-var validator = require('./../release/validator');
+var library = require('./../release/main');
+var property = library.Property;
+var validator = library.Validator;
 
 var testPropertyValid = function(done, value, obj, errorCode) {
     obj['valid'](value, function(err, result){

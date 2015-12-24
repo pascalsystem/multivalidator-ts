@@ -1,6 +1,7 @@
-var model = require('./../release/model');
-var property = require('./../release/property');
-var validator = require('./../release/validator');
+var library = require('./../release/main');
+var model = library.Model;
+var property = library.Property;
+var validator = library.Validator;
 
 describe("Validate model by validator", function(){
     var m1 = new model.Model({

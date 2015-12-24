@@ -1,4 +1,5 @@
-var validator = require('./../release/validator');
+var library = require('./../release/main');
+var validator = library.Validator;
 
 var validExpectErrorCode = function(done, value, obj, errorCode, errorParams){
     if (typeof errorParams !== 'object') {
