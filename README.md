@@ -3,3 +3,12 @@
 
 # multivalidator-ts
 
+Documentation and description about package will be published for few days.
+
+# short description
+
+Simple validators and validate object property values
+
+# typescript
+
+Supported type script and include definition typescript

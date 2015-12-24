@@ -5,6 +5,7 @@ var ts = require('gulp-typescript');
 var typescript = require('typescript');
 var mocha = require('gulp-mocha');
 var typedoc = require('gulp-typedoc');
+var stripComments = require('strip-comments');
 
 var PATHS = {
     mainFileTs: 'main.ts',
@@ -168,5 +169,7 @@ gulp.task('test', ['typescript-min'], function() {
 });
 
 gulp.task('build', ['typedoc-release'], function(){
-    
+    var filePath = PATHS.dest + '/main.js';
+    var cleanCode = stripComments(fs.readFileSync(filePath).toString('utf8'));
+    fs.writeFileSync(filePath, cleanCode);
 });
