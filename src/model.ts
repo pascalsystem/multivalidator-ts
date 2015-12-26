@@ -74,6 +74,13 @@ export class Result {
     }
     
     /**
+     * Get object with key is property name and value is property result
+     */
+    public getPropertiesResult() {
+        return this.properties;
+    }
+    
+    /**
      * Set validate object property values
      */
     public setValidateObject(obj:Object) {

@@ -56,6 +56,12 @@ declare module MultivalidatorTs {
              */
             getPropertyResult(property: string): Validator.Result;
             /**
+             * Get object with key is property name and value is property result
+             */
+            getPropertiesResult(): {
+                [key: string]: Validator.Result;
+            };
+            /**
              * Set validate object property values
              */
             setValidateObject(obj: Object): void;

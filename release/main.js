@@ -31,6 +31,10 @@ var Model;
             throw new Error('Not found validator result for property: ' + property);
         };
         
+        Result.prototype.getPropertiesResult = function () {
+            return this.properties;
+        };
+        
         Result.prototype.setValidateObject = function (obj) {
             this.validateObject = obj;
         };

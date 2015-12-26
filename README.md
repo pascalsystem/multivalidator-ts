@@ -3,12 +3,29 @@
 
 # multivalidator-ts
 
-Documentation and description about package will be published for few days.
+Validate string, number and date object type
 
-# short description
+~~~
+1. Validate integer number
+2. Validate minimum and maximum value number
+3. Validate string length
+4. Validate email
+5. Validate by regular expression
+6. Validate object properties
+~~~
 
-Simple validators and validate object property values
+# Usage and example
+[Documentation](http://multivalidatorts.pascalsystem.pl/)
 
-# typescript
+# TypeScript
+This module writen in TypeScript
 
-Supported type script and include definition typescript
+If you use TypeScript you must put this line with correct path in your script.
+```code
+/// <reference path='./node_modules/multivalidator-ts/multivalidator-ts.d.ts' /> 
+```
+
+# Installation
+```bash
+npm i multivalidator-ts
+```
