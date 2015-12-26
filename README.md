@@ -16,6 +16,7 @@ Validate string, number and date object type
 
 # Usage and example
 [Documentation](http://multivalidatorts.pascalsystem.pl/)
+http://multivalidatorts.pascalsystem.pl/
 
 # TypeScript
 This module writen in TypeScript
