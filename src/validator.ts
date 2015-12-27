@@ -53,7 +53,10 @@ export interface ValidatorRegExpOptions extends ValidatorOptions {
  * Validator email options
  */
 export interface ValidatorEmailOptions extends ValidatorOptions {
-    
+    /**
+     * Maximum length email address, default 320
+     */
+    maxLength?:number;
 }
 
 /**
@@ -267,11 +270,38 @@ export class ValidatorEmail extends ValidatorAbstract {
      * Email regular expression
      */
     private static DEFAULT_EMAIL_EXP:RegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    /**
+     * Default maximum email length
+     */
+    private static DEFAULT_EMAIL_MAX_LONG:number = 320;
     
     /**
      * Error code for value is not string
      */
-    public static ERROR_VALUE_IS_NOT_EMAIL = 'value_is_not_email';
+    public static ERROR_VALUE_IS_NOT_EMAIL:string = 'value_is_not_email';
+    /**
+     * Error code for email is too long
+     */
+    public static ERROR_VALUE_EMAIL_TOO_LONG:string = 'value_email_too_long';
+    
+    /**
+     * Maximum email address length
+     */
+    private maxLength:number;
+    
+    /**
+     * 
+     */
+    public constructor(options:ValidatorEmailOptions) {
+        super(options);
+        if (typeof options.maxLength === 'number') {
+            this.maxLength = options.maxLength;
+        } else if (options.maxLength === null) {
+            this.maxLength = null;
+        } else {
+            this.maxLength = ValidatorEmail.DEFAULT_EMAIL_MAX_LONG;
+        }
+    }
     
     /**
      * Valid value and get result object
@@ -280,6 +310,8 @@ export class ValidatorEmail extends ValidatorAbstract {
         var res = new Result();
         if ((typeof value !== 'string') || !ValidatorEmail.DEFAULT_EMAIL_EXP.test(value)) {
             res.addError(ValidatorEmail.ERROR_VALUE_IS_NOT_EMAIL, [value]);
+        } else if (value.length > this.maxLength) {
+            res.addError(ValidatorEmail.ERROR_VALUE_EMAIL_TOO_LONG, [value, this.maxLength]);
         }
         cb(null, res);
     }

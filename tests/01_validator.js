@@ -220,6 +220,28 @@ describe("Email validator", function(){
     it("Validate email, send not valid email", function(done){
         validExpectErrorCode(done, 'test@mail.', new validator.ValidatorEmail({}), 'value_is_not_email', ['test@mail.']);
     });
+    it("Validate email, maximum default 320 characters", function(done){
+        var longEmailAddress = 'testverylongaddressemail.hasmorethen320characters.hasmorethen320charactersabcde@'
+        longEmailAddress+= 'testverylongaddressemail.hasmorethen320characters.hasmorethen320charactersabcdes';
+        longEmailAddress+= 'testverylongaddressemail.hasmorethen320characters.hasmorethen320charactersabcdes';
+        longEmailAddress+= 'testverylongaddressemail.hasmorethen320characters.hasmorethen320charactersab.com';
+        validExpectErrorCode(done, longEmailAddress, new validator.ValidatorEmail({}), null);
+    });
+    it("Validate email, too long email for default 320 characters", function(done){
+        var longEmailAddress = 'testverylongaddressemail.hasmorethen320characters.hasmorethen320charactersabcde@'
+        longEmailAddress+= 'testverylongaddressemail.hasmorethen320characters.hasmorethen320charactersabcdes';
+        longEmailAddress+= 'testverylongaddressemail.hasmorethen320characters.hasmorethen320charactersabcdes';
+        longEmailAddress+= 'testverylongaddressemail.hasmorethen320characters.hasmorethen320charactersabx.com';
+        validExpectErrorCode(done, longEmailAddress, new validator.ValidatorEmail({}), 'value_email_too_long', [longEmailAddress, 320]);
+    });
+    it("Validate email, valid email by custom long characters equal 30", function(done){
+        var longEmailAddress = 'shortestthen30@shortes.com';
+        validExpectErrorCode(done, longEmailAddress, new validator.ValidatorEmail({maxLength:30}), null);
+    });
+    it("Validate email, too long email by custom long characters equal 30", function(done){
+        var longEmailAddress = 'longestemailaddressmore30@shortes.com';
+        validExpectErrorCode(done, longEmailAddress, new validator.ValidatorEmail({maxLength:30}), 'value_email_too_long', [longEmailAddress, 30]);
+    });
 });
 
 describe("Date object validator", function(){

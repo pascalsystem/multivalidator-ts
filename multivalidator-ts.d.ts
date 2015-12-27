@@ -225,6 +225,10 @@ declare module MultivalidatorTs {
          * Validator email options
          */
         interface ValidatorEmailOptions extends ValidatorOptions {
+            /**
+             * Maximum length email address, default 320
+             */
+            maxLength?: number;
         }
         /**
          * Validator string options
@@ -356,9 +360,25 @@ declare module MultivalidatorTs {
              */
             private static DEFAULT_EMAIL_EXP;
             /**
+             * Default maximum email length
+             */
+            private static DEFAULT_EMAIL_MAX_LONG;
+            /**
              * Error code for value is not string
              */
             static ERROR_VALUE_IS_NOT_EMAIL: string;
+            /**
+             * Error code for email is too long
+             */
+            static ERROR_VALUE_EMAIL_TOO_LONG: string;
+            /**
+             * Maximum email address length
+             */
+            private maxLength;
+            /**
+             *
+             */
+            constructor(options: ValidatorEmailOptions);
             /**
              * Valid value and get result object
              */
