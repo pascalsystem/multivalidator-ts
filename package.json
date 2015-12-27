@@ -1,7 +1,7 @@
 {
     "name": "multivalidator-ts",
     "description": "Multi validator object and property",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "author": "Bartłomiej Królikowski <info@pascalsystem.pl>",
     "main": "release/main.js",
     "license": "MIT",
