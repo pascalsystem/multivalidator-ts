@@ -38,7 +38,7 @@ export interface ValidatorStringOptions extends ValidatorOptions {
 /**
  * Validator regular expression options
  */
-export interface ValidatorRegExpOptions extends ValidatorAbstract {
+export interface ValidatorRegExpOptions extends ValidatorOptions {
     /**
      * Regular expression
      */
@@ -52,7 +52,7 @@ export interface ValidatorRegExpOptions extends ValidatorAbstract {
 /**
  * Validator email options
  */
-export interface ValidatorEmailOptions extends ValidatorAbstract {
+export interface ValidatorEmailOptions extends ValidatorOptions {
     
 }
 

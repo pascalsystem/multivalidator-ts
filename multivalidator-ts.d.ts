@@ -211,7 +211,7 @@ declare module MultivalidatorTs {
         /**
          * Validator regular expression options
          */
-        interface ValidatorRegExpOptions extends ValidatorAbstract {
+        interface ValidatorRegExpOptions extends ValidatorOptions {
             /**
              * Regular expression
              */
@@ -224,7 +224,7 @@ declare module MultivalidatorTs {
         /**
          * Validator email options
          */
-        interface ValidatorEmailOptions extends ValidatorAbstract {
+        interface ValidatorEmailOptions extends ValidatorOptions {
         }
         /**
          * Validator string options
