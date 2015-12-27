@@ -28,11 +28,11 @@ export interface ValidatorStringOptions extends ValidatorOptions {
     /**
      * Minimum string length
      */
-    minLength:number;
+    minLength?:number;
     /**
      * Maximum string length
      */
-    maxLength:number;
+    maxLength?:number;
 }
 
 /**
@@ -63,11 +63,11 @@ export interface ValidatorNumberOptions extends ValidatorOptions {
     /**
      * Minimum number value
      */
-    min:number;
+    min?:number;
     /**
      * Maximum number value
      */
-    max:number;
+    max?:number;
 }
 
 /**
