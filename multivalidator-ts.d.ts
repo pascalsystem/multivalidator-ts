@@ -202,11 +202,11 @@ declare module MultivalidatorTs {
             /**
              * Minimum string length
              */
-            minLength: string;
+            minLength: number;
             /**
              * Maximum string length
              */
-            maxLength: string;
+            maxLength: number;
         }
         /**
          * Validator regular expression options
@@ -308,11 +308,11 @@ declare module MultivalidatorTs {
             /**
              * Minimum string length
              */
-            protected minLength: string;
+            protected minLength: number;
             /**
              * Maximum string length
              */
-            protected maxLength: string;
+            protected maxLength: number;
             /**
              *
              */
