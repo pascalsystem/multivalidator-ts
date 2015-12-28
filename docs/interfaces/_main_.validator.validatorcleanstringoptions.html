@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ValidatorNumberOptions | MultiValidator TypeScript PascalSystem</title>
+	<title>ValidatorCleanStringOptions | MultiValidator TypeScript PascalSystem</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -63,10 +63,10 @@
 					<a href="../modules/_main_.validator.html">Validator</a>
 				</li>
 				<li>
-					<a href="_main_.validator.validatornumberoptions.html">ValidatorNumberOptions</a>
+					<a href="_main_.validator.validatorcleanstringoptions.html">ValidatorCleanStringOptions</a>
 				</li>
 			</ul>
-			<h1>Interface ValidatorNumberOptions</h1>
+			<h1>Interface ValidatorCleanStringOptions</h1>
 		</div>
 	</div>
 </header>
@@ -76,7 +76,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Validator string options</p>
+						<p>Validator clean string options</p>
 					</div>
 				</div>
 			</section>
@@ -84,10 +84,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_main_.validator.validatoroptions.html" class="tsd-signature-type">ValidatorOptions</a>
+						<a href="_main_.validator.validatorstringoptions.html" class="tsd-signature-type">ValidatorStringOptions</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">ValidatorNumberOptions</span>
+								<span class="target">ValidatorCleanStringOptions</span>
 							</li>
 						</ul>
 					</li>
@@ -100,8 +100,14 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_main_.validator.validatornumberoptions.html#max" class="tsd-kind-icon">max</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_main_.validator.validatornumberoptions.html#min" class="tsd-kind-icon">min</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_main_.validator.validatorcleanstringoptions.html#allowendwithspace" class="tsd-kind-icon">allow<wbr>End<wbr>With<wbr>Space</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_main_.validator.validatorcleanstringoptions.html#allownumberchars" class="tsd-kind-icon">allow<wbr>Number<wbr>Chars</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_main_.validator.validatorcleanstringoptions.html#allowspace" class="tsd-kind-icon">allow<wbr>Space</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_main_.validator.validatorcleanstringoptions.html#allowspecialchars" class="tsd-kind-icon">allow<wbr>Special<wbr>Chars</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_main_.validator.validatorcleanstringoptions.html#allowstartwithspace" class="tsd-kind-icon">allow<wbr>Start<wbr>With<wbr>Space</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_main_.validator.validatorcleanstringoptions.html#allowunicodechars" class="tsd-kind-icon">allow<wbr>Unicode<wbr>Chars</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_main_.validator.validatorcleanstringoptions.html#maxlength" class="tsd-kind-icon">max<wbr>Length</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_main_.validator.validatorcleanstringoptions.html#minlength" class="tsd-kind-icon">min<wbr>Length</a></li>
 							</ul>
 						</section>
 					</div>
@@ -110,32 +116,124 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="max" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> max</h3>
-					<div class="tsd-signature tsd-kind-icon">max<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="allowendwithspace" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> allow<wbr>End<wbr>With<wbr>Space</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>End<wbr>With<wbr>Space<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in main.ts:443</li>
+							<li>Defined in main.ts:408</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Maximum number value</p>
+							<p>Allow end with space characters, default is false</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="min" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> min</h3>
-					<div class="tsd-signature tsd-kind-icon">min<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="allownumberchars" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> allow<wbr>Number<wbr>Chars</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>Number<wbr>Chars<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in main.ts:439</li>
+							<li>Defined in main.ts:396</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Minimum number value</p>
+							<p>Allow number characters, default is true</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="allowspace" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> allow<wbr>Space</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>Space<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:400</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allow space characters, default is false</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="allowspecialchars" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> allow<wbr>Special<wbr>Chars</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>Special<wbr>Chars<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:388</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allow spacial characters string, default empty string</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="allowstartwithspace" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> allow<wbr>Start<wbr>With<wbr>Space</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>Start<wbr>With<wbr>Space<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:404</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allow start with space characters, default is false</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="allowunicodechars" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> allow<wbr>Unicode<wbr>Chars</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>Unicode<wbr>Chars<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:392</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allow unicode letters (non-ENGLISH characters), default is true</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="maxlength" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> max<wbr>Length</h3>
+					<div class="tsd-signature tsd-kind-icon">max<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_main_.validator.validatorstringoptions.html">ValidatorStringOptions</a>.<a href="_main_.validator.validatorstringoptions.html#maxlength">maxLength</a></p>
+						<ul>
+							<li>Defined in main.ts:379</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Maximum string length</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="minlength" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> min<wbr>Length</h3>
+					<div class="tsd-signature tsd-kind-icon">min<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_main_.validator.validatorstringoptions.html">ValidatorStringOptions</a>.<a href="_main_.validator.validatorstringoptions.html#minlength">minLength</a></p>
+						<ul>
+							<li>Defined in main.ts:375</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Minimum string length</p>
 						</div>
 					</div>
 				</section>
@@ -181,27 +279,45 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_main_.validator.resultitem.html" class="tsd-kind-icon">Result<wbr>Item</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_main_.validator.validatorcleanstringoptions.html" class="tsd-kind-icon">Validator<wbr>Clean<wbr>String<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_main_.validator.validatoremailoptions.html" class="tsd-kind-icon">Validator<wbr>Email<wbr>Options</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_main_.validator.validatornumberoptions.html" class="tsd-kind-icon">Validator<wbr>Number<wbr>Options</a>
+						<a href="_main_.validator.validatorcleanstringoptions.html" class="tsd-kind-icon">Validator<wbr>Clean<wbr>String<wbr>Options</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_main_.validator.validatornumberoptions.html#max" class="tsd-kind-icon">max</a>
+								<a href="_main_.validator.validatorcleanstringoptions.html#allowendwithspace" class="tsd-kind-icon">allow<wbr>End<wbr>With<wbr>Space</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_main_.validator.validatornumberoptions.html#min" class="tsd-kind-icon">min</a>
+								<a href="_main_.validator.validatorcleanstringoptions.html#allownumberchars" class="tsd-kind-icon">allow<wbr>Number<wbr>Chars</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_main_.validator.validatorcleanstringoptions.html#allowspace" class="tsd-kind-icon">allow<wbr>Space</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_main_.validator.validatorcleanstringoptions.html#allowspecialchars" class="tsd-kind-icon">allow<wbr>Special<wbr>Chars</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_main_.validator.validatorcleanstringoptions.html#allowstartwithspace" class="tsd-kind-icon">allow<wbr>Start<wbr>With<wbr>Space</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_main_.validator.validatorcleanstringoptions.html#allowunicodechars" class="tsd-kind-icon">allow<wbr>Unicode<wbr>Chars</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_main_.validator.validatorcleanstringoptions.html#maxlength" class="tsd-kind-icon">max<wbr>Length</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_main_.validator.validatorcleanstringoptions.html#minlength" class="tsd-kind-icon">min<wbr>Length</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_main_.validator.validatoremailoptions.html" class="tsd-kind-icon">Validator<wbr>Email<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_main_.validator.validatornumberoptions.html" class="tsd-kind-icon">Validator<wbr>Number<wbr>Options</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_main_.validator.validatoroptions.html" class="tsd-kind-icon">Validator<wbr>Options</a>
 					</li>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ValidatorString | MultiValidator TypeScript PascalSystem</title>
+	<title>ValidatorCleanString | MultiValidator TypeScript PascalSystem</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -63,10 +63,10 @@
 					<a href="../modules/_main_.validator.html">Validator</a>
 				</li>
 				<li>
-					<a href="_main_.validator.validatorstring.html">ValidatorString</a>
+					<a href="_main_.validator.validatorcleanstring.html">ValidatorCleanString</a>
 				</li>
 			</ul>
-			<h1>Class ValidatorString</h1>
+			<h1>Class ValidatorCleanString</h1>
 		</div>
 	</div>
 </header>
@@ -84,15 +84,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_main_.validator.validatorabstract.html" class="tsd-signature-type">ValidatorAbstract</a>
+						<a href="_main_.validator.validatorstring.html" class="tsd-signature-type">ValidatorString</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">ValidatorString</span>
-								<ul class="tsd-hierarchy">
-									<li>
-										<a href="_main_.validator.validatorcleanstring.html" class="tsd-signature-type">ValidatorCleanString</a>
-									</li>
-								</ul>
+								<span class="target">ValidatorCleanString</span>
 							</li>
 						</ul>
 					</li>
@@ -105,24 +100,34 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_main_.validator.validatorstring.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_main_.validator.validatorcleanstring.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_main_.validator.validatorstring.html#maxlength" class="tsd-kind-icon">max<wbr>Length</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_main_.validator.validatorstring.html#minlength" class="tsd-kind-icon">min<wbr>Length</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_main_.validator.validatorstring.html#error_value_is_not_string" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>NOT_<wbr>STRING</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_main_.validator.validatorstring.html#error_value_is_too_long" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>TOO_<wbr>LONG</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_main_.validator.validatorstring.html#error_value_is_too_short" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>TOO_<wbr>SHORT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_main_.validator.validatorcleanstring.html#allowendwithspace" class="tsd-kind-icon">allow<wbr>End<wbr>With<wbr>Space</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_main_.validator.validatorcleanstring.html#allownumberchars" class="tsd-kind-icon">allow<wbr>Number<wbr>Chars</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_main_.validator.validatorcleanstring.html#allowspace" class="tsd-kind-icon">allow<wbr>Space</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_main_.validator.validatorcleanstring.html#allowspecialchars" class="tsd-kind-icon">allow<wbr>Special<wbr>Chars</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_main_.validator.validatorcleanstring.html#allowstartwithspace" class="tsd-kind-icon">allow<wbr>Start<wbr>With<wbr>Space</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_main_.validator.validatorcleanstring.html#allowunicodechars" class="tsd-kind-icon">allow<wbr>Unicode<wbr>Chars</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_main_.validator.validatorcleanstring.html#matchstr" class="tsd-kind-icon">match<wbr>Str</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_main_.validator.validatorcleanstring.html#maxlength" class="tsd-kind-icon">max<wbr>Length</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_main_.validator.validatorcleanstring.html#minlength" class="tsd-kind-icon">min<wbr>Length</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_main_.validator.validatorcleanstring.html#regexp" class="tsd-kind-icon">reg<wbr>Exp</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_main_.validator.validatorcleanstring.html#error_value_has_not_allowed_characters" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>HAS_<wbr>NOT_<wbr>ALLOWED_<wbr>CHARACTERS</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_main_.validator.validatorcleanstring.html#error_value_is_not_string" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>NOT_<wbr>STRING</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_main_.validator.validatorcleanstring.html#error_value_is_too_long" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>TOO_<wbr>LONG</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_main_.validator.validatorcleanstring.html#error_value_is_too_short" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>TOO_<wbr>SHORT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_main_.validator.validatorcleanstring.html#error_value_start_or_end_space_character" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>START_<wbr>OR_<wbr>END_<wbr>SPACE_<wbr>CHARACTER</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_main_.validator.validatorstring.html#valid" class="tsd-kind-icon">valid</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="_main_.validator.validatorstring.html#validvalue" class="tsd-kind-icon">valid<wbr>Value</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_main_.validator.validatorcleanstring.html#valid" class="tsd-kind-icon">valid</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="_main_.validator.validatorcleanstring.html#validvalue" class="tsd-kind-icon">valid<wbr>Value</a></li>
 							</ul>
 						</section>
 					</div>
@@ -134,23 +139,23 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Validator<wbr>String<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/_main_.validator.validatorstringoptions.html" class="tsd-signature-type">ValidatorStringOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_main_.validator.validatorstring.html" class="tsd-signature-type">ValidatorString</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Validator<wbr>Clean<wbr>String<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/_main_.validator.validatorcleanstringoptions.html" class="tsd-signature-type">ValidatorCleanStringOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_main_.validator.validatorcleanstring.html" class="tsd-signature-type">ValidatorCleanString</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="_main_.validator.validatorabstract.html">ValidatorAbstract</a>.<a href="_main_.validator.validatorabstract.html#constructor">constructor</a></p>
+								<p>Overwrites <a href="_main_.validator.validatorstring.html">ValidatorString</a>.<a href="_main_.validator.validatorstring.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in main.ts:550</li>
+									<li>Defined in main.ts:622</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>options: <a href="../interfaces/_main_.validator.validatorstringoptions.html" class="tsd-signature-type">ValidatorStringOptions</a></h5>
+									<h5>options: <a href="../interfaces/_main_.validator.validatorcleanstringoptions.html" class="tsd-signature-type">ValidatorCleanStringOptions</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_main_.validator.validatorstring.html" class="tsd-signature-type">ValidatorString</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_main_.validator.validatorcleanstring.html" class="tsd-signature-type">ValidatorCleanString</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -158,10 +163,116 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="allowendwithspace" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> allow<wbr>End<wbr>With<wbr>Space</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>End<wbr>With<wbr>Space<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:614</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allow end with space characters</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="allownumberchars" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> allow<wbr>Number<wbr>Chars</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>Number<wbr>Chars<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:602</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allow number characters</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="allowspace" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> allow<wbr>Space</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>Space<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:606</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allow space characters</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="allowspecialchars" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> allow<wbr>Special<wbr>Chars</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>Special<wbr>Chars<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:594</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allow spacial characters string</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="allowstartwithspace" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> allow<wbr>Start<wbr>With<wbr>Space</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>Start<wbr>With<wbr>Space<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:610</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allow start with space characters</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="allowunicodechars" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> allow<wbr>Unicode<wbr>Chars</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>Unicode<wbr>Chars<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:598</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allow unicode letters</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="matchstr" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> match<wbr>Str</h3>
+					<div class="tsd-signature tsd-kind-icon">match<wbr>Str<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:618</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Regular expression match string</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="maxlength" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> max<wbr>Length</h3>
 					<div class="tsd-signature tsd-kind-icon">max<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="_main_.validator.validatorstring.html">ValidatorString</a>.<a href="_main_.validator.validatorstring.html#maxlength">maxLength</a></p>
 						<ul>
 							<li>Defined in main.ts:550</li>
 						</ul>
@@ -172,11 +283,12 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="minlength" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> min<wbr>Length</h3>
 					<div class="tsd-signature tsd-kind-icon">min<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="_main_.validator.validatorstring.html">ValidatorString</a>.<a href="_main_.validator.validatorstring.html#minlength">minLength</a></p>
 						<ul>
 							<li>Defined in main.ts:546</li>
 						</ul>
@@ -187,11 +299,42 @@
 						</div>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="regexp" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> reg<wbr>Exp</h3>
+					<div class="tsd-signature tsd-kind-icon">reg<wbr>Exp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:622</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Regular expression</p>
+						</div>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="error_value_has_not_allowed_characters" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ERROR_<wbr>VALUE_<wbr>HAS_<wbr>NOT_<wbr>ALLOWED_<wbr>CHARACTERS</h3>
+					<div class="tsd-signature tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>HAS_<wbr>NOT_<wbr>ALLOWED_<wbr>CHARACTERS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:586</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Error code for value has not allowed characters</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 					<a name="error_value_is_not_string" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> ERROR_<wbr>VALUE_<wbr>IS_<wbr>NOT_<wbr>STRING</h3>
 					<div class="tsd-signature tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>NOT_<wbr>STRING<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="_main_.validator.validatorstring.html">ValidatorString</a>.<a href="_main_.validator.validatorstring.html#error_value_is_not_string">ERROR_VALUE_IS_NOT_STRING</a></p>
 						<ul>
 							<li>Defined in main.ts:534</li>
 						</ul>
@@ -202,11 +345,12 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 					<a name="error_value_is_too_long" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> ERROR_<wbr>VALUE_<wbr>IS_<wbr>TOO_<wbr>LONG</h3>
 					<div class="tsd-signature tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>TOO_<wbr>LONG<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="_main_.validator.validatorstring.html">ValidatorString</a>.<a href="_main_.validator.validatorstring.html#error_value_is_too_long">ERROR_VALUE_IS_TOO_LONG</a></p>
 						<ul>
 							<li>Defined in main.ts:542</li>
 						</ul>
@@ -217,11 +361,12 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 					<a name="error_value_is_too_short" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> ERROR_<wbr>VALUE_<wbr>IS_<wbr>TOO_<wbr>SHORT</h3>
 					<div class="tsd-signature tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>TOO_<wbr>SHORT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="_main_.validator.validatorstring.html">ValidatorString</a>.<a href="_main_.validator.validatorstring.html#error_value_is_too_short">ERROR_VALUE_IS_TOO_SHORT</a></p>
 						<ul>
 							<li>Defined in main.ts:538</li>
 						</ul>
@@ -229,6 +374,21 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Error code for value is to short</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="error_value_start_or_end_space_character" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ERROR_<wbr>VALUE_<wbr>START_<wbr>OR_<wbr>END_<wbr>SPACE_<wbr>CHARACTER</h3>
+					<div class="tsd-signature tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>START_<wbr>OR_<wbr>END_<wbr>SPACE_<wbr>CHARACTER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in main.ts:590</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Error code value started or ended by empty space characters</p>
 						</div>
 					</div>
 				</section>
@@ -297,9 +457,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="_main_.validator.validatorabstract.html">ValidatorAbstract</a>.<a href="_main_.validator.validatorabstract.html#validvalue">validValue</a></p>
+								<p>Overwrites <a href="_main_.validator.validatorstring.html">ValidatorString</a>.<a href="_main_.validator.validatorstring.html#validvalue">validValue</a></p>
 								<ul>
-									<li>Defined in main.ts:562</li>
+									<li>Defined in main.ts:645</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -359,9 +519,69 @@
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="_main_.validator.validatorabstract.html" class="tsd-kind-icon">Validator<wbr>Abstract</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module">
 						<a href="_main_.validator.validatorcleanstring.html" class="tsd-kind-icon">Validator<wbr>Clean<wbr>String</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_main_.validator.validatorcleanstring.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_main_.validator.validatorcleanstring.html#allowendwithspace" class="tsd-kind-icon">allow<wbr>End<wbr>With<wbr>Space</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_main_.validator.validatorcleanstring.html#allownumberchars" class="tsd-kind-icon">allow<wbr>Number<wbr>Chars</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_main_.validator.validatorcleanstring.html#allowspace" class="tsd-kind-icon">allow<wbr>Space</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_main_.validator.validatorcleanstring.html#allowspecialchars" class="tsd-kind-icon">allow<wbr>Special<wbr>Chars</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_main_.validator.validatorcleanstring.html#allowstartwithspace" class="tsd-kind-icon">allow<wbr>Start<wbr>With<wbr>Space</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_main_.validator.validatorcleanstring.html#allowunicodechars" class="tsd-kind-icon">allow<wbr>Unicode<wbr>Chars</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_main_.validator.validatorcleanstring.html#matchstr" class="tsd-kind-icon">match<wbr>Str</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="_main_.validator.validatorcleanstring.html#maxlength" class="tsd-kind-icon">max<wbr>Length</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="_main_.validator.validatorcleanstring.html#minlength" class="tsd-kind-icon">min<wbr>Length</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_main_.validator.validatorcleanstring.html#regexp" class="tsd-kind-icon">reg<wbr>Exp</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_main_.validator.validatorcleanstring.html#error_value_has_not_allowed_characters" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>HAS_<wbr>NOT_<wbr>ALLOWED_<wbr>CHARACTERS</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_main_.validator.validatorcleanstring.html#error_value_is_not_string" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>NOT_<wbr>STRING</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_main_.validator.validatorcleanstring.html#error_value_is_too_long" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>TOO_<wbr>LONG</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_main_.validator.validatorcleanstring.html#error_value_is_too_short" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>TOO_<wbr>SHORT</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_main_.validator.validatorcleanstring.html#error_value_start_or_end_space_character" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>START_<wbr>OR_<wbr>END_<wbr>SPACE_<wbr>CHARACTER</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_main_.validator.validatorcleanstring.html#valid" class="tsd-kind-icon">valid</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+								<a href="_main_.validator.validatorcleanstring.html#validvalue" class="tsd-kind-icon">valid<wbr>Value</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="_main_.validator.validatordate.html" class="tsd-kind-icon">Validator<wbr>Date</a>
 					</li>
@@ -377,39 +597,9 @@
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="_main_.validator.validatorregexp.html" class="tsd-kind-icon">Validator<wbr>Reg<wbr>Exp</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-module">
+					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="_main_.validator.validatorstring.html" class="tsd-kind-icon">Validator<wbr>String</a>
-						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_main_.validator.validatorstring.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="_main_.validator.validatorstring.html#maxlength" class="tsd-kind-icon">max<wbr>Length</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="_main_.validator.validatorstring.html#minlength" class="tsd-kind-icon">min<wbr>Length</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="_main_.validator.validatorstring.html#error_value_is_not_string" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>NOT_<wbr>STRING</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="_main_.validator.validatorstring.html#error_value_is_too_long" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>TOO_<wbr>LONG</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="_main_.validator.validatorstring.html#error_value_is_too_short" class="tsd-kind-icon">ERROR_<wbr>VALUE_<wbr>IS_<wbr>TOO_<wbr>SHORT</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_main_.validator.validatorstring.html#valid" class="tsd-kind-icon">valid</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-								<a href="_main_.validator.validatorstring.html#validvalue" class="tsd-kind-icon">valid<wbr>Value</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_main_.validator.resultitem.html" class="tsd-kind-icon">Result<wbr>Item</a>
 					</li>

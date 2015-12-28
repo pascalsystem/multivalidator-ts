@@ -24,7 +24,7 @@ var validExpectErrorCode = function(done, value, obj, errorCode, errorParams){
                 for (var i=0;i < errors.length;i++) {
                     if (errors[i]['code'] === errorCode) {
                         for (var j=0;j < errorParams.length;j++) {
-                            if (errors[i]['params'][j] !== errorParams[j]) {
+                            if ((errors[i]['params'][j] !== errorParams[j]) && (errorParams[j] !== '__NOT_CHECK_VALUE__')) {
                                 return done(new Error('Expect error code: ' + errorCode + ','
                                     + ' but error parameter number: ' + j + ' is invalid'
                                     + ' expect value: ' + errorParams[j]
@@ -135,6 +135,105 @@ describe("String Validator", function(){
     });
     it("Validate minimum length string -> long string length", function(done){
         validExpectErrorCode(done, 'sdsdsdasdasdasdasdssd', new validator.ValidatorString({maxLength:10}), 'value_is_too_long', ['sdsdsdasdasdasdasdssd', 10]);
+    });
+});
+
+describe("String Clean Validator", function(){
+    it("Validate undefined variable", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: true, allowSpecialChars: '', allowNumberChars: false});
+        validExpectErrorCode(done, undefined, v, 'value_is_not_string', [undefined]);
+    });
+    it("Validate string only base letters (only-ENGLISH), send valid string", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: false, allowSpecialChars: '', allowNumberChars: false});
+        validExpectErrorCode(done, 'sd', v, null);
+    });
+    it("Validate string only base letters (only-ENGLISH), send string with dot", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: false, allowSpecialChars: '', allowNumberChars: false});
+        validExpectErrorCode(done, 'sd.s', v, 'value_has_not_allowed_characters', ['sd.s', '^([A-Za-z]+)$']);
+    });
+    it("Validate string only base letters (only-ENGLISH), send non eglish letter", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: false, allowSpecialChars: '', allowNumberChars: false});
+        validExpectErrorCode(done, 'sdąs', v, 'value_has_not_allowed_characters', ['sdąs', '^([A-Za-z]+)$']);
+    });
+    it("Validate string only base letters (only-ENGLISH), send number letter", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: false, allowSpecialChars: '', allowNumberChars: false});
+        validExpectErrorCode(done, 'sd2s', v, 'value_has_not_allowed_characters', ['sd2s', '^([A-Za-z]+)$']);
+    });
+    it("Validate string only base letters (only-ENGLISH), send tag character", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: false, allowSpecialChars: '', allowNumberChars: false});
+        validExpectErrorCode(done, 'sds>', v, 'value_has_not_allowed_characters', ['sds>', '^([A-Za-z]+)$']);
+    });
+    it("Validate string with special letters (non-ENGLISH), send valid string without non-ENGLISH letters", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: true, allowSpecialChars: '', allowNumberChars: false});
+        validExpectErrorCode(done, 'asd', v, null);
+    });
+    it("Validate string with special letters (non-ENGLISH), send valid string with non-ENGLISH letters", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: true, allowSpecialChars: '', allowNumberChars: false});
+        validExpectErrorCode(done, 'ÄäÖöÜüßasęóąśłżźćńĘÓŁŻŹĆŃŁŚĄd', v, null);
+    });
+    it("Validate string with special letters (non-ENGLISH), send not valid string with dot", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: true, allowSpecialChars: '', allowNumberChars: false});
+        validExpectErrorCode(done, 'ÄäÖöÜüßasęóąśłżźćńĘÓŁŻ.ŹĆŃŁŚĄd', v, 'value_has_not_allowed_characters', ['ÄäÖöÜüßasęóąśłżźćńĘÓŁŻ.ŹĆŃŁŚĄd', '__NOT_CHECK_VALUE__']);
+    });
+    it("Validate string with special letters (non-ENGLISH) and numbers", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: true, allowSpecialChars: '', allowNumberChars: true});
+        validExpectErrorCode(done, 'sdŹĆŃŁŚĄd23', v, null);
+    });
+    it("Validate string with special letters (non-ENGLISH) and numbers, but send dot", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: true, allowSpecialChars: '', allowNumberChars: true});
+        validExpectErrorCode(done, 'sdŹĆŃŁŚĄd23.', v, 'value_has_not_allowed_characters', ['sdŹĆŃŁŚĄd23.', '__NOT_CHECK_VALUE__']);
+    });
+    it("Validate string base letters and numbers", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: false, allowSpecialChars: '', allowNumberChars: true});
+        validExpectErrorCode(done, 'sawe23', v, null);
+    });
+    it("Validate string base letters and numbers, but send non-ENGLISH letters", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: false, allowSpecialChars: '', allowNumberChars: true});
+        validExpectErrorCode(done, 'sdŹĆŃŁŚĄd23.', v, 'value_has_not_allowed_characters', ['sdŹĆŃŁŚĄd23.', '__NOT_CHECK_VALUE__']);
+    });
+    it("Validate string with special characters string: 3", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: false, allowSpecialChars: '3', allowNumberChars: false});
+        validExpectErrorCode(done, 'sdwer3', v, null);
+    });
+    it("Validate string with special characters string: 3, but send 4", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: false, allowSpecialChars: '3', allowNumberChars: false});
+        validExpectErrorCode(done, 'sdwer4', v, 'value_has_not_allowed_characters', ['sdwer4', '^([A-Za-z3]+)$']);
+    });
+    it("Validate string with special characters string: !@#", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: false, allowSpecialChars: '!@#', allowNumberChars: false});
+        validExpectErrorCode(done, 'sdwer!@#', v, null);
+    });
+    it("Validate string with special characters string: !@#, but send .", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: false, allowSpecialChars: '!@#', allowNumberChars: false});
+        validExpectErrorCode(done, '.sdwer!@#', v, 'value_has_not_allowed_characters', ['.sdwer!@#', '^([A-Za-z!@#]+)$']);
+    });
+    it("Validate string with special character, number, and non-ENGLISH letters", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: true, allowSpecialChars: '!@#', allowNumberChars: true});
+        validExpectErrorCode(done, 's34łóśdźćżdwer!@#', v, null);
+    });
+    it("Validate string with special character, number, and non-ENGLISH letters", function(done){
+        var v = new validator.ValidatorCleanString({allowUnicodeChars: true, allowSpecialChars: '!@#', allowNumberChars: true});
+        validExpectErrorCode(done, 's34łóśdź.ćżdwer!@#', v, 'value_has_not_allowed_characters', ['s34łóśdź.ćżdwer!@#', '__NOT_CHECK_VALUE__']);
+    });
+    it("Validate string with special character, number, and non-ENGLISH letters, also allow space inside", function(done){
+        var v = new validator.ValidatorCleanString({allowSpace: true, allowUnicodeChars: true, allowSpecialChars: '!@#', allowNumberChars: true});
+        validExpectErrorCode(done, 's34łó śdźćżdwer!@#', v, null);
+    });
+    it("Validate string with special character, number, and non-ENGLISH letters, also allow space but no first character", function(done){
+        var v = new validator.ValidatorCleanString({allowSpace: true, allowUnicodeChars: true, allowSpecialChars: '!@#', allowNumberChars: true});
+        validExpectErrorCode(done, ' s34łóśdźćżdwer!@#', v, 'value_start_or_end_space_characters', [' s34łóśdźćżdwer!@#']);
+    });
+    it("Validate string with special character, number, and non-ENGLISH letters, also allow space but no last character", function(done){
+        var v = new validator.ValidatorCleanString({allowSpace: true, allowUnicodeChars: true, allowSpecialChars: '!@#', allowNumberChars: true});
+        validExpectErrorCode(done, 's34łóśdźćżdwer!@# ', v, 'value_start_or_end_space_characters', ['s34łóśdźćżdwer!@# ']);
+    });
+    it("Validate string with special character, number, and non-ENGLISH letters, also allow space inside and begining", function(done){
+        var v = new validator.ValidatorCleanString({allowStartWithSpace: true, allowSpace: true, allowUnicodeChars: true, allowSpecialChars: '!@#', allowNumberChars: true});
+        validExpectErrorCode(done, ' s34łóśdźćżdwer!@#', v, null);
+    });
+    it("Validate string with special character, number, and non-ENGLISH letters, also allow space inside and ending", function(done){
+        var v = new validator.ValidatorCleanString({allowEndWithSpace:true, allowSpace: true, allowUnicodeChars: true, allowSpecialChars: '!@#', allowNumberChars: true});
+        validExpectErrorCode(done, 's34łóśdźćżdwer!@# ', v, null);
     });
 });
 

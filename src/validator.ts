@@ -1,5 +1,7 @@
 /// <reference path='./../typings/node/node.d.ts' />
 
+import utf8characters = require('./utf8characters');
+
 /**
  * Result item
  */
@@ -33,6 +35,36 @@ export interface ValidatorStringOptions extends ValidatorOptions {
      * Maximum string length
      */
     maxLength?:number;
+}
+
+/**
+ * Validator clean string options
+ */
+export interface ValidatorCleanStringOptions extends ValidatorStringOptions {
+    /**
+     * Allow spacial characters string, default empty string
+     */
+    allowSpecialChars?:string;
+    /**
+     * Allow unicode letters (non-ENGLISH characters), default is true
+     */
+    allowUnicodeChars?:boolean;
+    /**
+     * Allow number characters, default is true
+     */
+    allowNumberChars?:boolean;
+    /**
+     * Allow space characters, default is false
+     */
+    allowSpace?:boolean;
+    /**
+     * Allow start with space characters, default is false
+     */
+    allowStartWithSpace?:boolean;
+    /**
+     * Allow end with space characters, default is false
+     */
+    allowEndWithSpace?:boolean;
 }
 
 /**
@@ -220,6 +252,101 @@ export class ValidatorString extends ValidatorAbstract {
         }
         
         cb(null, res);
+    }
+}
+
+/**
+ * Validator string
+ */
+export class ValidatorCleanString extends ValidatorString {
+    /**
+     * Error code for value has not allowed characters
+     */
+    public static ERROR_VALUE_HAS_NOT_ALLOWED_CHARACTERS:string = 'value_has_not_allowed_characters';
+    /**
+     * Error code value started or ended by empty space characters
+     */
+    public static ERROR_VALUE_START_OR_END_SPACE_CHARACTER:string = 'value_start_or_end_space_characters'
+    
+    /**
+     * Allow spacial characters string
+     */
+    protected allowSpecialChars:string;
+    /**
+     * Allow unicode letters
+     */
+    protected allowUnicodeChars:boolean;
+    /**
+     * Allow number characters
+     */
+    protected allowNumberChars:boolean;
+    /**
+     * Allow space characters
+     */
+    protected allowSpace:boolean;
+    /**
+     * Allow start with space characters
+     */
+    protected allowStartWithSpace:boolean;
+    /**
+     * Allow end with space characters
+     */
+    protected allowEndWithSpace:boolean;
+    /**
+     * Regular expression match string
+     */
+    protected matchStr:string;
+    /**
+     * Regular expression
+     */
+    protected regExp:RegExp;
+    
+    /**
+     * 
+     */
+    public constructor(options:ValidatorCleanStringOptions) {
+        super(options)
+        this.allowUnicodeChars = (typeof options.allowUnicodeChars === 'boolean') ? options.allowUnicodeChars : true;
+        this.allowSpecialChars = (typeof options.allowSpecialChars === 'string') ? options.allowSpecialChars : '';
+        this.allowNumberChars = (typeof options.allowNumberChars === 'boolean') ? options.allowNumberChars : true;
+        this.allowSpace = (typeof options.allowSpace === 'boolean') ? options.allowSpace : false;
+        this.allowStartWithSpace = (typeof options.allowStartWithSpace === 'boolean') ? options.allowStartWithSpace : false;
+        this.allowEndWithSpace = (typeof options.allowEndWithSpace === 'boolean') ? options.allowEndWithSpace : false;
+        
+        this.matchStr = '^([A-Za-z';
+        this.matchStr+= (this.allowSpace) ? " " : '';
+        this.matchStr+= (this.allowUnicodeChars) ? utf8characters.UTF8_CHARACTERS : '';
+        this.matchStr+= (this.allowNumberChars) ? '0-9' : '';
+        this.matchStr+= this.allowSpecialChars;
+        this.matchStr+= ']+)$';
+        
+        this.regExp = new RegExp(this.matchStr);
+    }
+    
+    /**
+     * Valid value and get result object
+     */
+    protected validValue(value:any, cb:(err:Error, res:Result)=>void) {
+        var self:ValidatorCleanString = this;
+        super.validValue(value, (err:Error, res:Result)=>{
+            if (err) {
+                cb(err, null);
+            } else if (typeof value !== 'string') {
+                cb(null, res);
+            } else {
+                if (!self.regExp.test(value)) {
+                    res.addError(ValidatorCleanString.ERROR_VALUE_HAS_NOT_ALLOWED_CHARACTERS, [value, self.matchStr]);
+                }
+                if (
+                    (!this.allowStartWithSpace && /^\s/.test(value))
+                    ||
+                    (!this.allowEndWithSpace && /\s$/.test(value))
+                ) {
+                    res.addError(ValidatorCleanString.ERROR_VALUE_START_OR_END_SPACE_CHARACTER, [value]);
+                }
+                cb(null, res);
+            }
+        });
     }
 }
 

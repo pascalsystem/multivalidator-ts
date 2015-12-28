@@ -176,6 +176,9 @@ declare module MultivalidatorTs {
             private validByValidators(idx, value, result, cb);
         }
     }
+    export module Utf8characters {
+        var UTF8_CHARACTERS: string;
+    }
     export module Validator {
         /**
          * Result item
@@ -207,6 +210,35 @@ declare module MultivalidatorTs {
              * Maximum string length
              */
             maxLength?: number;
+        }
+        /**
+         * Validator clean string options
+         */
+        interface ValidatorCleanStringOptions extends ValidatorStringOptions {
+            /**
+             * Allow spacial characters string, default empty string
+             */
+            allowSpecialChars?: string;
+            /**
+             * Allow unicode letters (non-ENGLISH characters), default is true
+             */
+            allowUnicodeChars?: boolean;
+            /**
+             * Allow number characters, default is true
+             */
+            allowNumberChars?: boolean;
+            /**
+             * Allow space characters, default is false
+             */
+            allowSpace?: boolean;
+            /**
+             * Allow start with space characters, default is false
+             */
+            allowStartWithSpace?: boolean;
+            /**
+             * Allow end with space characters, default is false
+             */
+            allowEndWithSpace?: boolean;
         }
         /**
          * Validator regular expression options
@@ -321,6 +353,59 @@ declare module MultivalidatorTs {
              *
              */
             constructor(options: ValidatorStringOptions);
+            /**
+             * Valid value and get result object
+             */
+            protected validValue(value: any, cb: (err: Error, res: Result) => void): void;
+        }
+        /**
+         * Validator string
+         */
+        class ValidatorCleanString extends ValidatorString {
+            /**
+             * Error code for value has not allowed characters
+             */
+            static ERROR_VALUE_HAS_NOT_ALLOWED_CHARACTERS: string;
+            /**
+             * Error code value started or ended by empty space characters
+             */
+            static ERROR_VALUE_START_OR_END_SPACE_CHARACTER: string;
+            /**
+             * Allow spacial characters string
+             */
+            protected allowSpecialChars: string;
+            /**
+             * Allow unicode letters
+             */
+            protected allowUnicodeChars: boolean;
+            /**
+             * Allow number characters
+             */
+            protected allowNumberChars: boolean;
+            /**
+             * Allow space characters
+             */
+            protected allowSpace: boolean;
+            /**
+             * Allow start with space characters
+             */
+            protected allowStartWithSpace: boolean;
+            /**
+             * Allow end with space characters
+             */
+            protected allowEndWithSpace: boolean;
+            /**
+             * Regular expression match string
+             */
+            protected matchStr: string;
+            /**
+             * Regular expression
+             */
+            protected regExp: RegExp;
+            /**
+             *
+             */
+            constructor(options: ValidatorCleanStringOptions);
             /**
              * Valid value and get result object
              */
